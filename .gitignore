@@ -1,3 +1,8 @@
+# specific to the project
+output_tts.wav
+output_songs.opus
+music_list.txt
+test.py
 bin/
 share/
 lib64/

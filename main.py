@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+from music_generator import MusicGenerator
 
 '''
 Defaults:
@@ -20,7 +20,7 @@ class RadioSegment:
     max_duration_minutes: int
 
 
-class AudioGeneration:
+class TTSGeneration:
     def __init__(self, provider: str = "pyttsx3", voice: str | None = None):
         self.provider = provider
         self.voice = voice
@@ -38,12 +38,9 @@ class AudioGeneration:
 
         raise ValueError(f"Unsupported audio provider: {provider}")
 
-    def generate_audio(self, text: str, output_file: str = "output.wav"):
+    def generate_audio(self, text: str, output_file: str = "output_tts.wav"):
         return self.tts(
             text=text,
             voice=self.voice,
             output_file=output_file,
         )
-
-test = AudioGeneration(provider="pyttsx3")
-test.generate_audio("You loaded an AI Model for this? What is wrong with you? Just use the CPU.")
